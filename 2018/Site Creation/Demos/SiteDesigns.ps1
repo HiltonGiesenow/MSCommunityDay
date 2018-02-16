@@ -6,7 +6,7 @@ $tenant = "sharepointgurus.co.za"
 $orgName = "spgurus"
 $userName = "hg@$tenant"
 $siteUrl = "https://spgurus.sharepoint.com/sites/2016Test"
-$userCredential = Get-Credential -UserName $userName -Message "Type the password."
+$userCredential = Get-Credential -UserName $userName -Message "Password for $userName"
 Connect-SPOService -Url https://$orgName-admin.sharepoint.com -Credential $userCredential
 
 Connect-SPOService -Url $siteUrl -Credential $userCredential
