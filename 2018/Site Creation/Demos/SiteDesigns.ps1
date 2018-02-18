@@ -9,10 +9,11 @@ $siteUrl = "https://spgurus.sharepoint.com/sites/2016Test"
 $userCredential = Get-Credential -UserName $userName -Message "Password for $userName"
 Connect-SPOService -Url https://$orgName-admin.sharepoint.com -Credential $userCredential
 
-Connect-SPOService -Url $siteUrl -Credential $userCredential
-
 Get-SPOSiteDesign
 Get-SPOSiteScript
+
+Remove-SPOSiteDesign -Identity (Get-SPOSiteDesign)[0].id
+Get-SPOSiteScript | Remove-SPOSiteScript
 
 $scriptBody = @'
 {
